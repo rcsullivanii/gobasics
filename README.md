@@ -9,6 +9,8 @@ The first program avoids the race conditions as each "recursive" call passes its
 
 The second program's usage of the global variable res means that res is updated concurrently by multiple gorountines (unsychronized access) which does mean there are race conditions. 
 
+To resolve them, I would recommend using a mutex to guard access to the global res variable.
+
 ## Assignment Description
 Write 2 Go programs, both of which compute N ^ P, N raised to the power P. Both will use goroutines (concurrent processes). Have the main function define the variable n and p as integers, and for simplicity, these parameters to the problem will be set as constants in the code rather than worrying for now about getting input from the kayboard. So set them to some initial value in the code for main (e.g., n = 127 and p = 12). Have function main call power(n,p). Then, the programs differ as follows:
 
